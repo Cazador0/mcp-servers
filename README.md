@@ -16,6 +16,7 @@ These servers aim to demonstrate MCP features and the TypeScript and Python SDKs
 - **[Fetch](src/fetch)** - Web content fetching and conversion for efficient LLM usage
 - **[Filesystem](src/filesystem)** - Secure file operations with configurable access controls
 - **[Git](src/git)** - Tools to read, search, and manipulate Git repositories
+- **[Insurance](src/insurance)** - Simple multi-org insurance demo with OpenAI-style UI
 - **[Memory](src/memory)** - Knowledge graph-based persistent memory system
 - **[Sequential Thinking](src/sequentialthinking)** - Dynamic and reflective problem-solving through thought sequences
 - **[Time](src/time)** - Time and timezone conversion capabilities
@@ -829,6 +830,7 @@ Additional resources on MCP.
 - **[Smithery](https://smithery.ai/)** - A registry of MCP servers to find the right tools for your LLM agents by **[Henry Mao](https://github.com/calclavia)**
 - **[Toolbase](https://gettoolbase.ai)** - Desktop application that manages tools and MCP servers with just a few clicks - no coding required by **[gching](https://github.com/gching)**
 - **[ToolHive](https://github.com/StacklokLabs/toolhive)** - A lightweight utility designed to simplify the deployment and management of MCP servers, ensuring ease of use, consistency, and security through containerization by **[StacklokLabs](https://github.com/StacklokLabs)**
+- [Blockchain Insurance Overview](insurance-application-overview.md) - Summary of the IBM DB2 Blockchain Insurance Application repository.
 
 ## 🚀 Getting Started
 

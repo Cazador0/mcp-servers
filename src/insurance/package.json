@@ -1,0 +1,25 @@
+{
+  "name": "@modelcontextprotocol/server-insurance",
+  "version": "0.1.0",
+  "description": "Simple multi-org insurance demo with OpenAI-style UI",
+  "license": "MIT",
+  "type": "module",
+  "bin": {
+    "mcp-server-insurance": "dist/index.js"
+  },
+  "files": ["dist"],
+  "scripts": {
+    "build": "tsc && shx chmod +x dist/*.js",
+    "prepare": "npm run build",
+    "start": "node dist/index.js"
+  },
+  "dependencies": {
+    "express": "^4.21.1"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.0",
+    "shx": "^0.3.4",
+    "typescript": "^5.6.2"
+  }
+}
+
