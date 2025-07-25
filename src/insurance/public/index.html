@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>Insurance Demo</title>
+<style>
+body{font-family:Arial, sans-serif;background:#f9f9f9;margin:0;padding:20px;color:#333;}
+header{background:#0f62fe;color:white;padding:10px;border-radius:4px;}
+main{margin-top:20px;}
+button{background:#0f62fe;color:white;border:none;padding:8px 12px;margin-right:4px;border-radius:4px;cursor:pointer;}
+input,select{padding:6px;margin:4px;}
+</style>
+</head>
+<body>
+<header><h1>Insurance Demo</h1></header>
+<main>
+<section id="contracts">
+<h2>Contracts</h2>
+<ul id="contract-list"></ul>
+<h3>Create Contract</h3>
+<input id="contract-org" placeholder="Organization"/>
+<input id="contract-product" placeholder="Product"/>
+<input id="contract-user" placeholder="User"/>
+<button onclick="addContract()">Add</button>
+</section>
+<section id="claims">
+<h2>Claims</h2>
+<ul id="claim-list"></ul>
+<h3>File Claim</h3>
+<select id="claim-contract"></select>
+<input id="claim-desc" placeholder="Description"/>
+<button onclick="addClaim()">File</button>
+</section>
+</main>
+<script>
+async function load(){
+ const cs=await fetch('/api/contracts').then(r=>r.json());
+ const cl=await fetch('/api/claims').then(r=>r.json());
+ const contractList=document.getElementById('contract-list');
+ const claimList=document.getElementById('claim-list');
+ const claimSelect=document.getElementById('claim-contract');
+ contractList.innerHTML=''; claimSelect.innerHTML='';
+ cs.forEach(c=>{ const li=document.createElement('li'); li.textContent=c.id+': '+c.product+' by '+c.org; contractList.appendChild(li); const opt=document.createElement('option'); opt.value=c.id; opt.textContent=c.id; claimSelect.appendChild(opt); });
+ claimList.innerHTML=''; cl.forEach(c=>{ const li=document.createElement('li'); li.textContent=c.contractId+': '+c.description+' ('+c.status+')'; claimList.appendChild(li); });
+}
+async function addContract(){
+ const body={org:document.getElementById('contract-org').value,product:document.getElementById('contract-product').value,user:document.getElementById('contract-user').value};
+ await fetch('/api/contracts',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)});
+ load();
+}
+async function addClaim(){
+ const body={contractId:document.getElementById('claim-contract').value,description:document.getElementById('claim-desc').value};
+ await fetch('/api/claims',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)});
+ load();
+}
+load();
+</script>
+</body>
+</html>
