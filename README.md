@@ -18,6 +18,7 @@ These servers aim to demonstrate MCP features and the TypeScript and Python SDKs
 - **[Git](src/git)** - Tools to read, search, and manipulate Git repositories
 - **[Insurance](src/insurance)** - Simple multi-org insurance demo with OpenAI-style UI
 - **[Memory](src/memory)** - Knowledge graph-based persistent memory system
+- **[Scrum Master](src/scrum-master)** - Prompt-based scrum master and agent-to-agent communication channel for cooperating coding agents
 - **[Sequential Thinking](src/sequentialthinking)** - Dynamic and reflective problem-solving through thought sequences
 - **[Time](src/time)** - Time and timezone conversion capabilities
 
